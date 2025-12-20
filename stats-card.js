@@ -42,14 +42,14 @@
                 // Name
                 h(
                     "div",
-                    { className: "text-2xl font-semibold tracking-wide text-white" },
+                    { className: "text-2xl font-semibold tracking-wide opacity-90" },
                     name
                 ),
 
                 // Stats col
                 h(
                     "div",
-                    { className: "mt-2 flex flex-col items-center gap-0 text-white/80 text-sm" },
+                    { className: "flex flex-col items-center gap-0 text-white/80 text-sm" },
 
                     h(
                         "div",
