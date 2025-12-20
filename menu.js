@@ -11,7 +11,7 @@
       "aside",
       {
         className:
-          "h-screen w-[280px] shrink-0 border-r border-white/10 bg-white/5 p-3 flex flex-col gap-3",
+          "h-screen w-full shrink-0 border-r border-white/10 bg-white/5 p-3 flex flex-col gap-3",
         role: "navigation",
         "aria-label": title,
       },
