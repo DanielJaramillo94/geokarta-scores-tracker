@@ -25,49 +25,96 @@
     <div id="root"></div>
 
     <script src="./menu.js"></script>
+    <script src="./stats-card.js"></script>
 
     <script>
-      const { createElement: h, useMemo, useState } = React;
+      const { createElement: h, useEffect, useState } = React;
       const { createRoot } = ReactDOM;
 
       function App() {
-        const dates = useMemo(
-          () => [
-            "2025-12-20",
-            "2025-12-21",
-            "2025-12-22",
-            "2025-12-23",
-            "2025-12-24",
-          ],
-          []
-        );
+        const [menuData, setMenuData] = useState(null);
+        const [selectedKey, setSelectedKey] = useState(null);
+        const [error, setError] = useState(null);
 
-        const [selectedDate, setSelectedDate] = useState(dates[0]);
+        // Fetch menu.json once on mount
+        useEffect(() => {
+          fetch("./menu.json")
+            .then((res) => {
+              if (!res.ok) {
+                throw new Error("Failed to load menu.json");
+              }
+              return res.json();
+            })
+            .then((data) => {
+              setMenuData(data);
+              // Select first item by default
+              const firstKey = Object.keys(data)[0];
+              setSelectedKey(firstKey);
+            })
+            .catch((err) => {
+              setError(err.message);
+            });
+        }, []);
+
+        // Loading state
+        if (!menuData) {
+          return h(
+            "div",
+            {
+              className:
+                "h-screen flex items-center justify-center text-white/60",
+            },
+            error ? error : "Loading…"
+          );
+        }
 
         return h(
           "div",
           { className: "h-screen grid grid-cols-[280px_1fr]" },
+
           h(window.DateSidebarMenu, {
-            title: "Select a date",
-            dates,
-            selectedDate,
-            onSelect: setSelectedDate,
+            title: "Menu",
+            dates: Object.keys(menuData),
+            selectedDate: selectedKey,
+            onSelect: setSelectedKey,
           }),
+
           h(
             "main",
             {
               className:
-                "relative h-screen flex items-center justify-center p-6",
+                "h-screen flex flex-col items-center justify-center p-6",
             },
-            h(
-              "div",
-              {
-                className:
-                  "text-center font-extrabold tracking-tight text-[clamp(2.5rem,6vw,5rem)]",
-              },
-              selectedDate
-            )
+            h("img", {
+              src: "./assets/geokarta.png",
+              alt: "Distance",
+              className: "h-48 w-48 object-contain",
+              loading: "lazy",
+            }),
+            h(window.StatsCard, {
+              rank: "1",
+              name: "Daniel",
+              date: "17/12/2025",
+              distance: "42,62 km",
+              time: "01:28:82",
+            }),
+            h(window.StatsCard, {
+              rank: "2",
+              name: "Daniel",
+              date: "17/12/2025",
+              distance: "42,62 km",
+              time: "01:28:82",
+            }),
+            h(window.StatsCard, {
+              rank: "3",
+              name: "Daniel",
+              date: "17/12/2025",
+              distance: "42,62 km",
+              time: "01:28:82",
+            })
           ),
+
+          // Footer
           h(
             "div",
             {
