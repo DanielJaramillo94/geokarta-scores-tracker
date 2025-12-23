@@ -49,7 +49,7 @@
                 // Stats col
                 h(
                     "div",
-                    { className: "flex flex-col items-center gap-0 text-white/80 text-sm" },
+                    { className: "flex flex-col items-left gap-0 text-white/80 text-sm" },
 
                     h(
                         "div",
