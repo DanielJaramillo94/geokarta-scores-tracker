@@ -1,4 +1,38 @@
 {
+  "31-12-2025": [
+    {
+      "name": "Miguel Avendaño",
+      "distance": "0,0 km",
+      "time": "00:17:62"
+    },
+    {
+      "name": "Gabriel Alfonso",
+      "distance": "0,0 km",
+      "time": "00:19:78"
+    },
+    {
+      "name": "Lady Bibiana",
+      "distance": "0,0 km",
+      "time": "00:20:70"
+    }
+  ],
+  "30-12-2025": [
+    {
+      "name": "Miguel Avendaño",
+      "distance": "0,0 km",
+      "time": "00:18:23"
+    },
+    {
+      "name": "Gabriel Alfonso",
+      "distance": "0,0 km",
+      "time": "00:19:78"
+    },
+    {
+      "name": "Samuel Tabares",
+      "distance": "0,0 km",
+      "time": "00:22:90"
+    }
+  ],
   "29-12-2025": [
     {
       "name": "Miguel Avendaño",
