@@ -1,4 +1,21 @@
 {
+  "01-01-2026": [
+    {
+      "name": "Miguel Avendaño",
+      "distance": "0,0 km",
+      "time": "00:17:62"
+    },
+    {
+      "name": "Gabriel Alfonso",
+      "distance": "0,0 km",
+      "time": "00:18:57"
+    },
+    {
+      "name": "Carolina Palacio",
+      "distance": "0,0 km",
+      "time": "00:18:64"
+    }
+  ],
   "31-12-2025": [
     {
       "name": "Miguel Avendaño",
